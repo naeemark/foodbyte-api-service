@@ -14,6 +14,7 @@ async function bootstrap() {
     .setTitle("Foodbyte API Service")
     .setDescription("REST API Specification for Foodbyte API")
     .setVersion("1.0")
+    .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup("api-docs", app, document, {
@@ -21,7 +22,8 @@ async function bootstrap() {
   });
 
   await app.listen(process.env.PORT ? parseInt(process.env.PORT) : 3000);
-  console.log(`App started on: ${(await app.getUrl()).replace("[::1]", "localhost")}`);
-  console.log(`See Docs: ${(await app.getUrl()).replace("[::1]", "localhost")}/api-docs`);
+
+  const appUrl = await app.getUrl();
+  console.log(`App started on: ${appUrl}. See Docs: ${appUrl}/api-docs`);
 }
 bootstrap();

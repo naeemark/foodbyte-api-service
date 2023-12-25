@@ -97,14 +97,14 @@ $ yarn test:cov
 
 #### Run Docker Image
 
-- Run `docker run -d -p 80:3000 foodbyte-api-service`
-- You may access the running docker app on [`http://localhost/api-docs`](http://localhost/api-docs)
+- Run `docker run -d -p 3000:3000 foodbyte-api-service`
+- You may access the running docker app on [`http://localhost:3000/api-docs`](http://localhost/api-docs)
 
 #### Run Docker Image From Docker hub
 
 - **[Docker Image Repository](https://hub.docker.com/repository/docker/naeemark/foodbyte-api-service)**
-- Run `docker run -d --name foodbyte-api-service -p 80:3000 naeemark/foodbyte-api-service`
-- You may access the running docker app on [`http://localhost/api-docs`](http://localhost/api-docs)
+- Run `docker run -d --name foodbyte-api-service -p 3000:3000 naeemark/foodbyte-api-service`
+- You may access the running docker app on [`http://localhost:3000/api-docs`](http://localhost/api-docs)
 
 #### Stop Docker Container
 

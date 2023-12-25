@@ -1,9 +1,10 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, HttpException, HttpStatus } from "@nestjs/common";
 import { UserService } from "./user.service";
 import { UserDto } from "./dto/user.dto";
-import { ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
+import { ApiBearerAuth, ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
 import { User } from "./entities/user.entity";
 
+@ApiBearerAuth()
 @Controller({ version: "1", path: "users" })
 @ApiTags("Users")
 @ApiResponse({ status: 400, description: "Bad Request: validation error!" })

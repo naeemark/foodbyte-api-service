@@ -4,8 +4,6 @@ import { Repository } from "typeorm";
 import { UserDto } from "./dto/user.dto";
 import { User } from "./entities/user.entity";
 
-const relations = {};
-
 @Injectable()
 export class UserService {
   constructor(
@@ -18,11 +16,15 @@ export class UserService {
   }
 
   async findAll(): Promise<User[]> {
-    return await this.repository.find({ relations });
+    return await this.repository.find();
   }
 
   async findOne(id: number): Promise<User> {
-    return await this.repository.findOneOrFail({ where: { id }, relations });
+    return await this.repository.findOneOrFail({ where: { id } });
+  }
+
+  async findOneByName(name: string): Promise<User> {
+    return await this.repository.findOneOrFail({ where: { name } });
   }
 
   async update(id: number, dto: UserDto) {

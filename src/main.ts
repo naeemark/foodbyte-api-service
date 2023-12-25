@@ -21,5 +21,7 @@ async function bootstrap() {
   });
 
   await app.listen(process.env.PORT ? parseInt(process.env.PORT) : 3000);
+  console.log(`App started on: ${(await app.getUrl()).replace("[::1]", "localhost")}`);
+  console.log(`See Docs: ${(await app.getUrl()).replace("[::1]", "localhost")}/api-docs`);
 }
 bootstrap();
